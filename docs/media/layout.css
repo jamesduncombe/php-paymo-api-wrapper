@@ -1,0 +1,74 @@
+#header {
+	z-index:	100;
+	position: 	fixed;
+	top:		0px;
+	left:		0px;
+	width:		100%;
+	height:		21px;
+	box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+#nav {
+	z-index:	200;
+	position: 	fixed;
+	top:		32px;
+	left:		0px;
+	width:		15%;
+	height:		1600px;
+	clip:		auto;
+	overflow:	auto;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+}
+#body {
+	margin-top: 42px;
+	margin-left: 17%;
+	width: 81%;
+}
+#content {
+	clear:		both;
+	top:		-1px;
+}
+#packagePosition {
+	float: right;
+	width:		35%;
+	height:		100%;
+}
+#elementPath {
+	position:	absolute;
+	right:		0px;
+	bottom:		0px;
+}
+#navLinks {
+	float: left;
+}
+.leftCol {
+	width:		25%;
+	float:		left;
+	margin-right: 21px;
+}
+.leftCol .indent {
+	padding: 10px 5%;
+}
+.middleCol {
+	width:		25%;
+	float:		left;
+	margin-right: 21px;
+}
+.rightCol {
+	width:		25%;
+	float:		left;
+	margin-right: 21px;
+}
+.rightCol .indent {
+	padding: 10px 5%;
+}
+
+#credit {
+	margin-top:	20px;
+	margin-bottom:	50px;
+}
+
+.indent {
+	background: #ececec;
+	padding: 21px 1%;
+	margin-bottom: 10px;
+}

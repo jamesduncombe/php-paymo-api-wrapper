@@ -1,0 +1,777 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Docs For Class Paymo</title>
+	<link rel="stylesheet" type="text/css" id="layout" href="../../media/layout.css" media="screen">
+	<!--<link rel="stylesheet" type="text/css" href="../../media/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../../media/print.css" media="print">-->
+	<link rel="stylesheet" type="text/css" href="../../media/jd.css">
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+</head>
+
+<body>
+<div id="header">
+	<div id="navLinks">
+        
+                                    
+                            	        [ <a href="../../classtrees_paymo-api.html">Class Tree: paymo-api</a> ]
+            [ <a href="../../elementindex_paymo-api.html">Index: paymo-api</a> ]
+        		[ <a href="../../elementindex.html">All elements</a> ]		
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle2">paymo-api</div>
+		<div id="packageTitle">paymo-api</div>
+		<div id="elementPath">paymo &middot; </div>
+	</div>
+</div>
+
+<div id="nav" class="small">
+	<div id="todolist">
+			<p><a href="../../todolist.html">Todo List</a></p>
+	</div>
+	<div id="packages">
+		Packages:
+					<p><a href="../../li_paymo-api.html">paymo-api</a></p>
+			</div>
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+					subpackage <b>cache</b><br>			<a href="../../paymo-api/cache/_class-cache.php.html">		class-cache.php
+		</a><br>
+		subpackage <b>paymo</b><br>			<a href="../../paymo-api/paymo/_class-paymo.php.html">		class-paymo.php
+		</a><br>
+				</div>
+			<div id="interfaces">
+							</div>
+			<div id="classes">
+				Classes:<br>
+					<b>cache</b><br>			<a href="../../paymo-api/cache/Cache.html">		Cache
+		</a><br>
+		<b>paymo</b><br>			<a href="../../paymo-api/paymo/Paymo.html">		Paymo
+		</a><br>
+				</div>
+		</div>
+	</div>
+
+<div id="body">
+	    		<h1>Class: Paymo</h1>
+	<p style="margin: 0px;">Source Location: /class-paymo.php</p>
+	
+
+<div class="leftcol">
+	<h3><a href="#class_details">Class Overview</a> <span class="smalllinenumber">[line 23]</span></h3>
+	<div id="classTree"><pre><a href="../../paymo-api/cache/Cache.html">Cache</a>
+   |
+   --Paymo</pre>
+</div>
+	<div class="small">
+	<p>The main class</p>
+		<h4>Author(s):</h4>
+	<ul>
+			</ul>
+	<h4>Version:</h4>
+	<ul>
+			</ul>
+
+	<h4>Copyright:</h4>
+	<ul>
+			</li>
+	</div>
+</div>
+
+<div class="middlecol">
+	<h3><a href="#class_vars">Variables</a></h3>
+	<ul class="small">
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$api_key">$api_key</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$auth_token">$auth_token</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$cache_file_data">$cache_file_data</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$error_msg">$error_msg</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$format">$format</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$method_args">$method_args</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$response">$response</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$rest_url">$rest_url</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$use_auth_cache">$use_auth_cache</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#var$use_data_cache">$use_data_cache</a></li>
+			</ul>
+	<h3><a href="#class_consts">Constants</a></h3>
+	<ul class="small">
+			</ul>
+</div>
+<div class="rightcol">
+	<h3><a href="#class_methods">Methods</a></h3>
+	<ul class="small">
+				<li><a href="../../paymo-api/paymo/Paymo.html#method__construct">__construct</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodauth_login">auth_login</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodcallMethod">callMethod</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodcheckDataCache">checkDataCache</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodclients_findByName">clients_findByName</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodclients_getInfo">clients_getInfo</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodclients_getList">clients_getList</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodcompanies_getInfo">companies_getInfo</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodentries_findByProject">entries_findByProject</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodentries_getTrackedTimeByProject">entries_getTrackedTimeByProject</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodentries_getTrackedTimeByUser">entries_getTrackedTimeByUser</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodprojects_getList">projects_getList</a></li>
+				<li><a href="../../paymo-api/paymo/Paymo.html#methodreports_create">reports_create</a></li>
+			</ul>
+</div>
+
+<div id="content">
+<hr>
+	<div class="contents">
+	</div>
+
+	<div class="leftCol">
+    	<h2>Inherited Variables</h2>
+			<div class="indent">
+		<h3>Class: <a href="../../paymo-api/cache/Cache.html">Cache</a></h3>
+		<div class="small">
+			<dl>
+						<dt>
+				<a href="../../paymo-api/cache/Cache.html#var$cache_file">Cache::$cache_file</a>
+			</dt>
+			<dd>
+				 
+			</dd>
+						<dt>
+				<a href="../../paymo-api/cache/Cache.html#var$cache_time">Cache::$cache_time</a>
+			</dt>
+			<dd>
+				 
+			</dd>
+						<dt>
+				<a href="../../paymo-api/cache/Cache.html#var$mod_time">Cache::$mod_time</a>
+			</dt>
+			<dd>
+				 
+			</dd>
+						</dl>
+		</div>
+		</div>
+		<h2>Inherited Constants</h2>
+		</div>
+
+	<div class="rightCol">
+	<h2>Inherited Methods</h2>
+			<div class="indent">
+		<h3>Class: <a href="../../paymo-api/cache/Cache.html">Cache</a></h3>
+		<dl class="small">
+						<dt>
+				<a href="../../paymo-api/cache/Cache.html#method__construct">Cache::__construct()</a>
+			</dt>
+			<dd>
+				Class construct for the cache class
+			</dd>
+					<dt>
+				<a href="../../paymo-api/cache/Cache.html#methodcheckCache">Cache::checkCache()</a>
+			</dt>
+			<dd>
+				Check for cached file
+			</dd>
+					<dt>
+				<a href="../../paymo-api/cache/Cache.html#methodgetCache">Cache::getCache()</a>
+			</dt>
+			<dd>
+				Get the cache file contents
+			</dd>
+					<dt>
+				<a href="../../paymo-api/cache/Cache.html#methodsetCache">Cache::setCache()</a>
+			</dt>
+			<dd>
+				Set the cache file contents
+			</dd>
+				</dl>
+		</div>
+		</div>
+	<br clear="all">
+	<hr>
+
+	<a name="class_details"></a>
+	<h2>Class Details</h2>
+	<p align="center"><strong>The main class
+</strong></p>
+<p>Main class for PHP Paymo API Wrapper. Read on for more fun and games!</p>	<p class="small" style="color: #334B66;">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_vars"></a>
+	<h2>Class Variables</h2>
+		<a name="var$api_key"></a>
+	<p></p>
+	<h4>$api_key</h4>
+	<div class="indent">
+		<p class="linenumber">[line 25]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$auth_token"></a>
+	<p></p>
+	<h4>$auth_token</h4>
+	<div class="indent">
+		<p class="linenumber">[line 27]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$cache_file_data"></a>
+	<p></p>
+	<h4>$cache_file_data</h4>
+	<div class="indent">
+		<p class="linenumber">[line 32]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$error_msg"></a>
+	<p></p>
+	<h4>$error_msg</h4>
+	<div class="indent">
+		<p class="linenumber">[line 30]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$format"></a>
+	<p></p>
+	<h4>$format</h4>
+	<div class="indent">
+		<p class="linenumber">[line 26]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$method_args"></a>
+	<p></p>
+	<h4>$method_args</h4>
+	<div class="indent">
+		<p class="linenumber">[line 33]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$response"></a>
+	<p></p>
+	<h4>$response</h4>
+	<div class="indent">
+		<p class="linenumber">[line 29]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$rest_url"></a>
+	<p></p>
+	<h4>$rest_url = <span class="value">&nbsp;'http://api.paymo.biz/service/'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 28]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$use_auth_cache"></a>
+	<p></p>
+	<h4>$use_auth_cache</h4>
+	<div class="indent">
+		<p class="linenumber">[line 34]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$use_data_cache"></a>
+	<p></p>
+	<h4>$use_data_cache</h4>
+	<div class="indent">
+		<p class="linenumber">[line 35]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_methods"></a>
+	<h2>Class Methods</h2>
+	
+	<a name="method__construct"></a>
+	<p></p>
+	<h3>__construct</h3>
+	<div class="indent">
+		<p>
+		<code>Paymo __construct(
+string
+$api_key, string
+$username, string
+$password, bool
+$use_auth_cache, bool
+$use_data_cache, string
+$format)</code>
+		</p>
+	
+		<p class="linenumber">[line 47]</p>
+		<p align="center"><strong>Setup a new instance of the class
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+<p>Overrides <a href="../../paymo-api/cache/Cache.html#method__construct">Cache::__construct()</a> (Class construct for the cache class)</p>	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$api_key</b> 
+		- 
+		Paymo API key</li>
+			<li>
+		<span class="type">string</span>
+		<b>$username</b> 
+		- 
+		Paymo username</li>
+			<li>
+		<span class="type">string</span>
+		<b>$password</b> 
+		- 
+		Paymo password</li>
+			<li>
+		<span class="type">bool</span>
+		<b>$use_auth_cache</b> 
+		- 
+		Whether or not to use the cache for authenticating with Paymo</li>
+			<li>
+		<span class="type">bool</span>
+		<b>$use_data_cache</b> 
+		- 
+		Whether or not to use the cache for data from Paymo</li>
+			<li>
+		<span class="type">string</span>
+		<b>$format</b> 
+		- 
+		What format to request, JSON or XML?</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodauth_login"></a>
+	<p></p>
+	<h3>auth_login</h3>
+	<div class="indent">
+		<p>
+		<code>mixed auth_login(
+string
+$username, string
+$password)</code>
+		</p>
+	
+		<p class="linenumber">[line 163]</p>
+		<p align="center"><strong>paymo.auth.login
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.auth.login.html">http://api.paymo.biz/docs/paymo.auth.login.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$username</b> 
+		- 
+		Your username for Paymo</li>
+			<li>
+		<span class="type">string</span>
+		<b>$password</b> 
+		- 
+		Your password for Paymo</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodcallMethod"></a>
+	<p></p>
+	<h3>callMethod</h3>
+	<div class="indent">
+		<p>
+		<code>void callMethod(
+string
+$method, [array
+$args = array()])</code>
+		</p>
+	
+		<p class="linenumber">[line 82]</p>
+		<p align="center"><strong>Function to call Paymo API methods
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>todo</b> - Must be able to use POST as well as GET for these methods</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$method</b> 
+		- 
+		API method name that will be called</li>
+			<li>
+		<span class="type">array</span>
+		<b>$args</b> 
+		- 
+		Array of options to pass to method</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodcheckDataCache"></a>
+	<p></p>
+	<h3>checkDataCache</h3>
+	<div class="indent">
+		<p>
+		<code>bool checkDataCache(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 137]</p>
+		<p align="center"><strong>Check for cached data files time
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodclients_findByName"></a>
+	<p></p>
+	<h3>clients_findByName</h3>
+	<div class="indent">
+		<p>
+		<code>mixed clients_findByName(
+string
+$client_name)</code>
+		</p>
+	
+		<p class="linenumber">[line 203]</p>
+		<p align="center"><strong>paymo.clients.findByName
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.clients.findByName.html">http://api.paymo.biz/docs/paymo.clients.findByName.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$client_name</b> 
+		- 
+		@client_name Client's name</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodclients_getInfo"></a>
+	<p></p>
+	<h3>clients_getInfo</h3>
+	<div class="indent">
+		<p>
+		<code>mixed clients_getInfo(
+string
+$client_id)</code>
+		</p>
+	
+		<p class="linenumber">[line 182]</p>
+		<p align="center"><strong>paymo.clients.getInfo
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.clients.getList.html">http://api.paymo.biz/docs/paymo.clients.getList.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$client_id</b> 
+		- 
+		Your client id</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodclients_getList"></a>
+	<p></p>
+	<h3>clients_getList</h3>
+	<div class="indent">
+		<p>
+		<code>mixed clients_getList(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 192]</p>
+		<p align="center"><strong>paymo.clients.getList
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.clients.getList.html">http://api.paymo.biz/docs/paymo.clients.getList.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodcompanies_getInfo"></a>
+	<p></p>
+	<h3>companies_getInfo</h3>
+	<div class="indent">
+		<p>
+		<code>mixed companies_getInfo(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 222]</p>
+		<p align="center"><strong>paymo.companies.getInfo
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.companies.getInfo.html">http://api.paymo.biz/docs/paymo.companies.getInfo.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodentries_findByProject"></a>
+	<p></p>
+	<h3>entries_findByProject</h3>
+	<div class="indent">
+		<p>
+		<code>mixed entries_findByProject(
+string
+$project_id, string
+$start, string
+$end)</code>
+		</p>
+	
+		<p class="linenumber">[line 264]</p>
+		<p align="center"><strong>paymo.entries.findByProject
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.entries.findByProject.html">http://api.paymo.biz/docs/paymo.entries.findByProject.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$project_id</b> 
+		- 
+		Project ID that you are searching for</li>
+			<li>
+		<span class="type">string</span>
+		<b>$start</b> 
+		- 
+		Start time in MySQL datetime format</li>
+			<li>
+		<span class="type">string</span>
+		<b>$end</b> 
+		- 
+		End time in MySQL datetime format</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodentries_getTrackedTimeByProject"></a>
+	<p></p>
+	<h3>entries_getTrackedTimeByProject</h3>
+	<div class="indent">
+		<p>
+		<code>mixed entries_getTrackedTimeByProject(
+string
+$project_id, string
+$start, string
+$end)</code>
+		</p>
+	
+		<p class="linenumber">[line 278]</p>
+		<p align="center"><strong>paymo.entries.getTrackedTimeByProject
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByProject.html">http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByProject.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$project_id</b> 
+		- 
+		Project ID that you are searching for</li>
+			<li>
+		<span class="type">string</span>
+		<b>$start</b> 
+		- 
+		Start time in MySQL datetime format</li>
+			<li>
+		<span class="type">string</span>
+		<b>$end</b> 
+		- 
+		End time in MySQL datetime format</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodentries_getTrackedTimeByUser"></a>
+	<p></p>
+	<h3>entries_getTrackedTimeByUser</h3>
+	<div class="indent">
+		<p>
+		<code>mixed entries_getTrackedTimeByUser(
+string
+$user_id)</code>
+		</p>
+	
+		<p class="linenumber">[line 290]</p>
+		<p align="center"><strong>paymo.entries.getTrackedTimeByUser
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByUser.html">http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByUser.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$user_id</b> 
+		- 
+		The user id that you wish to get stats for</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodprojects_getList"></a>
+	<p></p>
+	<h3>projects_getList</h3>
+	<div class="indent">
+		<p>
+		<code>mixed projects_getList(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 241]</p>
+		<p align="center"><strong>paymo.projects.getList
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.projects.getList.html">http://api.paymo.biz/docs/paymo.projects.getList.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodreports_create"></a>
+	<p></p>
+	<h3>reports_create</h3>
+	<div class="indent">
+		<p>
+		<code>void reports_create(
+string
+$start, string
+$end, string
+$clients)</code>
+		</p>
+	
+		<p class="linenumber">[line 310]</p>
+		<p align="center"><strong>paymo.reports.create
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://api.paymo.biz/docs/paymo.reports.create.html">http://api.paymo.biz/docs/paymo.reports.create.html</a></li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$start</b> 
+		- 
+		Start time in MySQL datetime format</li>
+			<li>
+		<span class="type">string</span>
+		<b>$end</b> 
+		- 
+		End time in MySQL datetime format</li>
+			<li>
+		<span class="type">string</span>
+		<b>$clients</b> 
+		- 
+		Array of client ID's</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_consts"></a>
+	<h2>Class Constants</h2>
+	</div>
+	<div id="credit">
+		<hr>
+		Documentation generated on Wed, 14 Dec 2011 20:46:43 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	</div>
+</div>
+</body>
+</html>

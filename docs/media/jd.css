@@ -1,0 +1,21 @@
+#body {
+	padding: 21px 10px 10px;
+}
+
+#header {
+	background: #ececec;
+	border-bottom: solid #ccc 1px;
+	padding: 5px;
+}
+
+#nav {
+	background: #ececec;
+	padding: 10px;
+	border-right: solid #ccc 1px;
+}
+
+#index { margin-top: 42px; }
+
+#index > div {
+	margin-bottom: 21px;
+}
