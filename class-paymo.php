@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Class by JD for Paymo API - http://api.paymo.biz
+ * PHP wrapper for Paymo API - http://api.paymo.biz
  * 
  * API key : f232efcc9a6e3183af89ab8e50fd1c9f
  * http://api.paymo.biz/service/METHOD_NAME?api_key=API_KEY&format=RESPONSE_FORMAT&arg1=value1
@@ -14,9 +14,7 @@
  */
  
 /**
- * The main class
- *
- * Main class for PHP Paymo API Wrapper. Read on for more fun and games!
+ * The main paymo class
  * @package paymo-api
  */
 class Paymo extends Cache {
@@ -44,6 +42,7 @@ class Paymo extends Cache {
 	 * @param string	$format				What format to request, JSON or XML?
 	 */
 	public function __construct($api_key, $username, $password, $use_auth_cache, $use_data_cache, $format) {
+		
 		/* Set main vars */
 		$this->cache_file = './cache/test.cache';
 		$this->cache_time = 8400;
@@ -153,7 +152,6 @@ class Paymo extends Cache {
 	
 	/**
 	 * paymo.auth.login
-	 * 
 	 * @link http://api.paymo.biz/docs/paymo.auth.login.html
 	 * @param string $username Your username for Paymo
 	 * @param string $password Your password for Paymo
@@ -253,7 +251,6 @@ class Paymo extends Cache {
 	
 	/**
 	 * paymo.entries.findByProject
-	 *
 	 * @link http://api.paymo.biz/docs/paymo.entries.findByProject.html
 	 * @param string $project_id Project ID that you are searching for
 	 * @param string $start	Start time in MySQL datetime format
@@ -267,7 +264,6 @@ class Paymo extends Cache {
 
 	/**
 	 * paymo.entries.getTrackedTimeByProject
-	 *
 	 * @link http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByProject.html
 	 * @param string $project_id Project ID that you are searching for
 	 * @param string $start	Start time in MySQL datetime format
@@ -281,7 +277,6 @@ class Paymo extends Cache {
 
 	/**
 	 * paymo.entries.getTrackedTimeByUser
-	 *
 	 * @link http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByUser.html
 	 * @param string $user_id The user id that you wish to get stats for
 	 * @return mixed 
