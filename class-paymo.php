@@ -2,8 +2,7 @@
 /**
  *
  * PHP wrapper for Paymo API - http://api.paymo.biz
- * 
- * API key : f232efcc9a6e3183af89ab8e50fd1c9f
+ *
  * http://api.paymo.biz/service/METHOD_NAME?api_key=API_KEY&format=RESPONSE_FORMAT&arg1=value1
  * 
  * @package paymo-api

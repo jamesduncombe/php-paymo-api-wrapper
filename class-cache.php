@@ -26,18 +26,22 @@ abstract class Cache {
 	}
 	
 	/**
-	 * Create new cache store
+	 * Create new cache directory
 	 * @return bool
 	 */
-	public function createCache() {
+	public function createCacheDirectory() {
 		if (!file_exists(dirname($this->cache_file))) {
-			die('Please create the cache directory: '.dirname($this->cache_file).' and make sure it\'s writeable by this script.');
+			if (!mkdir(dirname($this->cache_file))) {
+				die('Please create the cache directory: '.dirname($this->cache_file).' and make sure it\'s writeable by this script.');
+			} else {
+				return true;
+			}
 		}
 	}
 
 	/**
 	 * Get the cache file contents
-	 * @return bool
+	 * @return string|bool The cache content or false if we get it
 	 */
 	public function getCache() {
 		if (file_exists($this->cache_file)) {
@@ -63,8 +67,9 @@ abstract class Cache {
 				die('Can\'t write cache file, please check the cache directory permissions. Is it writeable by this script?');
 			}
 		} else {
+			die('DEAD');
 			// first create the cache
-			$this->createCache();
+			$this->createCacheDirectory();
 			// then fill the cache
 			$this->setCache($new_data);
 		}

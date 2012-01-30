@@ -18,6 +18,13 @@ Below is a very short example of how this can be used:
 <?php
 	
 	/**
+	 * Require both our Paymo and Cache classes
+	 */
+	 
+	require_once 'class-cache.php';
+	require_once 'class-paymo.php';
+	
+	/**
 	 * Create a new instance of Paymo
 	 * Here we want the API to return it's response in JSON format
 	 * We're also asking it to cache the authentication token and cache the API response
@@ -32,6 +39,7 @@ Below is a very short example of how this can be used:
 	/**
 	 * Print out a list of all our clients
 	 */
+	 
 	print_r( $paymo->clients_getList() );
 	
 ?>
