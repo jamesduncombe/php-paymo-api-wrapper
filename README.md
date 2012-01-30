@@ -7,3 +7,5 @@ This is a wrapper for Paymo's API. Please feel free to fork it and make it bette
 I've created a small caching class. This is used to cache up the returned responses from Paymo's API.
 
 Then there's obviously the main Paymo class.
+
+The Paymo and Cache classes have both been commented with Doxygen format comments (the Doxygen config file is here too).
