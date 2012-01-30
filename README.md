@@ -16,7 +16,15 @@ Below is a very short example of how this can be used:
 
 ```php
 <?php
-$paymo = new Paymo('your_api_key', 'your_username', 'your_password', true, true, $format);
-print_r($paymo->clients_getList());
+	
+	/**
+	 * Create a new instance of Paymo
+	 * Here we want the API to return it's response in JSON format
+	 * We're also asking it to cache the authentication token and cache the API response
+	 */ 
+	$paymo = new Paymo('your_api_key', 'your_username', 'your_password', true, true, 'json');
+	
+	print_r($paymo->clients_getList());
+	
 ?>
 ```
