@@ -27,10 +27,12 @@ Below is a very short example of how this can be used:
 	$use_auth_cache = true;
 	$use_data_cache = true;
 	
-	$paymo = new Paymo('your_api_key', 'your_username', 'your_password', $use_auth_cache, $use_data_cache, $api_response_format);
+	$paymo = new Paymo( 'your_api_key', 'your_username', 'your_password', $use_auth_cache, $use_data_cache, $api_response_format );
 	
-	// Print out a list of all the clients
-	print_r($paymo->clients_getList());
+	/**
+	 * Print out a list of all our clients
+	 */
+	print_r( $paymo->clients_getList() );
 	
 ?>
 ```
