@@ -4,8 +4,17 @@ This is a wrapper for Paymo's API. Please feel free to fork it and make it bette
 
 ### What's included?
 
-- I've created a small caching class. This is used to cache up the returned responses from Paymo's API.
+- Caching class - this is used to cache up the returned responses from Paymo's API.
 
-- Then there's obviously the main Paymo class.
+- The main Paymo class - this includes all the methods 
 
 - The Paymo and Cache classes have both been commented with [Doxygen](http://www.stack.nl/~dimitri/doxygen/) format comments (the Doxygen config file is here too).
+
+### Example
+
+`
+<?php
+	$paymo = new Paymo('your_api_key', 'your_username', 'your_password', true, true, $format);
+	print_r($paymo->clients_getList());
+?>
+`
