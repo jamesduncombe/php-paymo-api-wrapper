@@ -12,6 +12,8 @@ This is a wrapper for Paymo's API. Please feel free to fork it and make it bette
 
 ### Example
 
+Below is a very short example of how this can be used:
+
 `
 <?php
 	$paymo = new Paymo('your_api_key', 'your_username', 'your_password', true, true, $format);
