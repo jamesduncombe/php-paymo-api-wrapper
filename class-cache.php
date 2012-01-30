@@ -26,6 +26,16 @@ abstract class Cache {
 	}
 	
 	/**
+	 * Create new cache store
+	 * @return bool
+	 */
+	public function createCache() {
+		if (!file_exists(dirname($this->cache_file))) {
+			die('Please create the cache directory: '.dirname($this->cache_file).' and make sure it\'s writeable by this script.');
+		}
+	}
+
+	/**
 	 * Get the cache file contents
 	 * @return bool
 	 */
@@ -44,12 +54,19 @@ abstract class Cache {
 	 * @return bool
 	 */
 	public function setCache($new_data) {
-		if (is_writeable(dirname($this->cache_file))) {
-			if (file_put_contents($this->cache_file, $new_data)) {
-			return true;
+		if (file_exists(dirname($this->cache_file))) {
+			if (is_writeable(dirname($this->cache_file))) {
+				if (file_put_contents($this->cache_file, $new_data)) {
+				return true;
+				}
+			} else {
+				die('Can\'t write cache file, please check the cache directory permissions. Is it writeable by this script?');
 			}
 		} else {
-			return false;
+			// first create the cache
+			$this->createCache();
+			// then fill the cache
+			$this->setCache($new_data);
 		}
 	}
 
