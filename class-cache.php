@@ -31,11 +31,15 @@ abstract class Cache {
 	 */
 	public function createCacheDirectory() {
 		if (!file_exists(dirname($this->cache_file))) {
-			if (!mkdir(dirname($this->cache_file))) {
+			if (!@mkdir(dirname($this->cache_file))) {
 				die('Please create the cache directory: '.dirname($this->cache_file).' and make sure it\'s writeable by this script.');
 			} else {
 				return true;
 			}
+		} elseif (file_exists(dirname($this->cache_file)) && !is_writable(dirname($this->cache_file))) {
+			die('Cannot write to cache directory. Please make it writeable.');
+		} else {
+			return true;
 		}
 	}
 
@@ -68,6 +72,7 @@ abstract class Cache {
 			}
 		} else {
 			die('DEAD');
+			echo 'HERE';
 			// first create the cache
 			$this->createCacheDirectory();
 			// then fill the cache
@@ -80,6 +85,9 @@ abstract class Cache {
      * @return bool
      */
     public function checkCache() {
+    	if (file_exists(dirname($this->cache_file)) || !is_writable(dirname($this->cache_file))) {
+    		$this->createCacheDirectory();
+    	}
     	if (file_exists($this->cache_file)) {
     		$this->mod_time = filemtime($this->cache_file) + $this->cache_time;
     		if ($this->mod_time > time()) {

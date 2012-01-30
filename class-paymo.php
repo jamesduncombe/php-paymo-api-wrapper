@@ -109,8 +109,7 @@ class Paymo extends Cache {
 
 		// if we're not using a cache
 		} else {
-		
-			//echo $method;
+
 			$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
 
 			// check format - XML or JSON
