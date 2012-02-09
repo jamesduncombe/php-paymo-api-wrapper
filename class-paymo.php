@@ -186,16 +186,10 @@ class Paymo extends Cache {
 		$this->callMethod('GET', 'paymo.auth.checkToken', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token));
 		return $this->response ? $this->response : $this->error_msg;
 	}
-	
-	
 
 	/**
-	  * 
 	  * paymo.clients
-	  *
-	  * All submethods.
 	  * @defgroup Clients
-	  *
 	  */
 	
 	/**
@@ -235,12 +229,8 @@ class Paymo extends Cache {
 
 	
 	/** 
-	 * 
 	 * paymo.companies
-	 *
-	 * All submethods.
 	 * @defgroup Companies
-	 *
 	 */
 
 	/**
@@ -256,12 +246,8 @@ class Paymo extends Cache {
 	
 	
 	/** 
-	 * 
 	 * paymo.projects
-	 *
-	 * All submethods.
 	 * @defgroup Projects
-	 *
 	 */
 	
 	/**
@@ -276,12 +262,8 @@ class Paymo extends Cache {
 	}
 	
 	/**
-	 *
 	 * payment.entries
-	 *
-	 * All submethods.
 	 * @defgroup Entries
-	 *
 	 */
 	
 	
@@ -326,12 +308,8 @@ class Paymo extends Cache {
 	}
 	
 	/**
-	 *
 	 * paymo.reports
-	 *
-	 * All submethods.
 	 * @defgroup Reports
-	 *
 	 */
 
 	/** 
