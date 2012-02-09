@@ -58,7 +58,6 @@ class Paymo extends Cache {
 			$result = simplexml_load_string($result);
 			$this->auth_token = $result->token;
 		} else {
-			$result = json_decode($result);
 			$this->auth_token = $result->token->_content;
 		}
 
@@ -101,9 +100,9 @@ class Paymo extends Cache {
 				if (!$this->checkCache()) {
 					$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
 					file_put_contents($this->cache_file, $api_response);
-					$this->response = $api_response;
+					$this->response = json_decode($api_response);
 				} else {
-					$this->response = file_get_contents($this->cache_file);
+					$this->response = json_decode(file_get_contents($this->cache_file));
 				}
 			}
 
@@ -176,6 +175,19 @@ class Paymo extends Cache {
 		$this->callMethod('GET', 'paymo.auth.login', array("api_key" => $this->api_key, "username" => $username, "password" => $password, "format" => $this->format));
 		return $this->response ? $this->response : $this->error_msg;
 	}
+	
+	/**
+	 * paymo.auth.checkToken
+	 * @ingroup Auth
+	 * @see http://api.paymo.biz/docs/paymo.auth.checkToken.html
+	 * @return mixed
+	 */
+	function auth_checkToken() {
+		$this->callMethod('GET', 'paymo.auth.checkToken', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token));
+		return $this->response ? $this->response : $this->error_msg;
+	}
+	
+	
 
 	/**
 	  * 
@@ -330,8 +342,26 @@ class Paymo extends Cache {
 	 * @param string $end	End time in MySQL datetime format (<a href="http://api.paymo.biz/docs/misc.dates.html">more info on the date format</a>)
 	 * @param string $clients Comma seperated list of client ID's
 	 */
-	function reports_create($start, $end, $clients) {
-		$this->callMethod('POST', 'paymo.reports.create', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token, "clients" => $clients, "start" => $start, "end" => $end));
+	function reports_create($start, $end, $clients, $optional_arguments = array()) {
+		
+		// Set the default arguments for this API method
+		$arguments = array(
+			"api_key" => $this->api_key,
+			"format" => $this->format,
+			"auth_token" => $this->auth_token,
+			"clients" => $clients,
+			"start" => $start,
+			"end" => $end
+		);
+		
+		// Loop through the optional arguments and add them to the query string
+		foreach ( $optional_arguments as $argument ) {
+			array_push($arguments, $argument);
+		}
+		
+		// Finally, call the API method, passing the arguments
+		$this->callMethod('POST', 'paymo.reports.create', $arguments);
+		
 		return $this->response ? $this->response : $this->error_msg;
 	}
 
