@@ -74,7 +74,7 @@ class Paymo extends Cache {
 
 		// iterate over the method arguments
 		foreach ($params as $key => $value) {
-			$request_params .= $key.'='.$value.'&';
+			$request_params .= urlencode($key).'='.urlencode($value).'&';
 		}
 		
 		// setup the string which is encoded and cleaned
