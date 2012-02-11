@@ -172,7 +172,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function auth_login($username, $password) {
-		$this->callMethod('GET', 'paymo.auth.login', array("api_key" => $this->api_key, "username" => $username, "password" => $password, "format" => $this->format));
+		$this->callMethod('GET', 'paymo.auth.login', array('api_key' => $this->api_key, 'username' => $username, 'password' => $password, 'format' => $this->format));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 	
@@ -183,7 +183,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function auth_checkToken() {
-		$this->callMethod('GET', 'paymo.auth.checkToken', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token));
+		$this->callMethod('GET', 'paymo.auth.checkToken', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 
@@ -200,7 +200,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function clients_getInfo($client_id) {
-		$this->callMethod('GET', 'paymo.clients.getInfo', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token, "client_id" => $client_id));
+		$this->callMethod('GET', 'paymo.clients.getInfo', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'client_id' => $client_id));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 	
@@ -211,7 +211,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function clients_getList() {
-		$this->callMethod('GET', 'paymo.clients.getList', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token));
+		$this->callMethod('GET', 'paymo.clients.getList', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 	
@@ -223,7 +223,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function clients_findByName($client_name) {
-		$this->callMethod('GET', 'paymo.clients.findByName', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token, "name" => $client_name));
+		$this->callMethod('GET', 'paymo.clients.findByName', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'name' => $client_name));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 
@@ -240,7 +240,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function companies_getInfo() {
-		$this->callMethod('GET', 'paymo.companies.getInfo', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token));
+		$this->callMethod('GET', 'paymo.companies.getInfo', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 	
@@ -257,7 +257,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function projects_getList() {
-		$this->callMethod('GET', 'paymo.projects.getList', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token));
+		$this->callMethod('GET', 'paymo.projects.getList', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 	
@@ -277,7 +277,7 @@ class Paymo extends Cache {
 	 * @return mixed
 	 */
 	function entries_findByProject($project_id, $start, $end) {
-		$this->callMethod('GET', 'paymo.entries.findByProject', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token, "project_id" => $project_id, "start" => $start, "end" => $end));
+		$this->callMethod('GET', 'paymo.entries.findByProject', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'project_id' => $project_id, 'start' => $start, 'end' => $end));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 
@@ -291,7 +291,7 @@ class Paymo extends Cache {
 	 * @return mixed 
 	 */
 	function entries_getTrackedTimeByProject($project_id, $start, $end) {
-		$this->callMethod('GET', 'paymo.entries.getTrackedTimeByProject', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token, "project_id" => $project_id, "start" => $start, "end" => $end));
+		$this->callMethod('GET', 'paymo.entries.getTrackedTimeByProject', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'project_id' => $project_id, 'start' => $start, 'end' => $end));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 
@@ -303,7 +303,7 @@ class Paymo extends Cache {
 	 * @return mixed 
 	 */
 	function entries_getTrackedTimeByUser($user_id) {
-		$this->callMethod('GET', 'paymo.entries.getTrackedTimeByUser', array("api_key" => $this->api_key, "format" => $this->format, "auth_token" => $this->auth_token, "user_id" => $user_id));
+		$this->callMethod('GET', 'paymo.entries.getTrackedTimeByUser', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'user_id' => $user_id));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 	
@@ -322,22 +322,22 @@ class Paymo extends Cache {
 	 */
 	function reports_create($start, $end, $clients, $optional_arguments = array()) {
 		
-		// Set the default arguments for this API method
+		// set the default arguments for this API method
 		$arguments = array(
-			"api_key" => $this->api_key,
-			"format" => $this->format,
-			"auth_token" => $this->auth_token,
-			"clients" => $clients,
-			"start" => $start,
-			"end" => $end
+			'api_key' => $this->api_key,
+			'format' => $this->format,
+			'auth_token' => $this->auth_token,
+			'clients' => $clients,
+			'start' => $start,
+			'end' => $end
 		);
 		
-		// Loop through the optional arguments and add them to the query string
+		// loop through the optional arguments and add them to the query string
 		foreach ( $optional_arguments as $argument ) {
 			array_push($arguments, $argument);
 		}
 		
-		// Finally, call the API method, passing the arguments
+		// finally, call the API method, passing the arguments
 		$this->callMethod('POST', 'paymo.reports.create', $arguments);
 		
 		return $this->response ? $this->response : $this->error_msg;
