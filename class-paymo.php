@@ -55,9 +55,8 @@ class Paymo extends Cache {
 		
 		// check if we're using XML or JSON format
 		if ($this->format === 'xml') {
-			$result = simplexml_load_string($result);
 			$this->auth_token = $result->token;
-		} else {
+		} elseif ($this->format === 'json') {
 			$this->auth_token = $result->token->_content;
 		}
 
@@ -115,12 +114,16 @@ class Paymo extends Cache {
 			if ($this->format === 'xml') { 
 				$this->response = simplexml_load_string($api_response);
 			} elseif ($this->format === 'json') {
-				$this->response = $api_response;
+				$this->response = json_decode($api_response);
 			}
 		}
 				
 		if ($this->response->error) {
+			if ($this->format === 'xml') {
 			$this->error_msg = 'Sorry, there was a problem, the error from Paymo was: '.strval($this->response->error->attributes()->message);
+			} elseif ($this->format === 'json') {
+				$this->error_msg = 'Sorry, there was a problem, the error from Paymo was: '.strval($this->response->error->message);	
+			}
 			$this->response = false;
 		}
 		return $this->response;
