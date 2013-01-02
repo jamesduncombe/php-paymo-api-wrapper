@@ -25,16 +25,26 @@ Below is a very short example of how this can be used:
 	require_once 'class-paymo.php';
 	
 	/**
-	 * Create a new instance of Paymo
-	 * Here we want the API to return it's response in JSON format
-	 * We're also asking it to cache the authentication token and cache the API response
+	 * Set some initial vars to indicate we want JSON as the response format
+	 * Turn on the authentication cache
+	 * Also turn on the data cache
 	 */
 	
 	$api_response_format = 'json';
 	$use_auth_cache = true;
 	$use_data_cache = true;
 	
-	$paymo = new Paymo( 'your_api_key', 'your_username', 'your_password', $use_auth_cache, $use_data_cache, $api_response_format );
+	/**
+	 * Create a new instance of the Paymo class passing login details as required
+	 */
+	$paymo = new Paymo(
+		'your_api_key',
+		'your_username',
+		'your_password',
+		$use_auth_cache,
+		$use_data_cache,
+		$api_response_format
+	);
 	
 	/**
 	 * Print out a list of all our clients
