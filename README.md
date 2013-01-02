@@ -41,6 +41,18 @@ Below is a very short example of how this can be used:
 	 */
 	 
 	print_r( $paymo->clients_getList() );
+
+	/**
+	 * Print out a list of invoices between April and August of 2012
+	 * For date format see: http://api.paymo.biz/docs/misc.dates.html
+	 */
+
+	$client_id = null;
+	$start = '2012-04-01';
+	$end = '2012-08-01';
+	$status = 'paid';
+
+	print_r( $paymo->invoices_find( $client_id, $start, $end, $status ) );
 	
 ?>
 ```
