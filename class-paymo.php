@@ -278,8 +278,8 @@ class Paymo extends Cache {
 	 * @param string $end End date in MySQL datetime format - optional
 	 * @param string $status Valid invoice statuses are: draft, sent, viewed, paid, void. - optional
 	 */
-	function invoices_find($client_id, $start, $end, $status) {
-		$this->callMethod('GET', 'paymo.invoices.find', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'client_id' => $client_id, 'start' => $start, 'end' => $end, 'status' => $status));
+	function invoices_find($client_id, $start_date, $end_date, $status) {
+		$this->callMethod('GET', 'paymo.invoices.find', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'client_id' => $client_id, 'start_date' => $start_date, 'end_date' => $end_date, 'status' => $status));
 		return $this->response ? $this->response : $this->error_msg;
 	}
 	
