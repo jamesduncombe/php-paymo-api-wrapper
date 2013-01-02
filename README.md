@@ -35,8 +35,9 @@ Below is a very short example of how this can be used:
 	$use_data_cache = true;
 	
 	/**
-	 * Create a new instance of the Paymo class passing login details as required
+	 * Create a new instance of the Paymo class, passing login details as required
 	 */
+	
 	$paymo = new Paymo(
 		'your_api_key',
 		'your_username',
