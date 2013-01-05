@@ -67,3 +67,7 @@ Below is a very short example of how this can be used:
 	
 ?>
 ```
+
+### Caching
+
+At the moment caching is mixed with the Paymo class. I'd like to split this soon so that it could be used independently. It uses MD5 to create a hash of the API URL & parameters. By doing this you can cache individual API calls to the same method. One use case is for different logins to the API.
