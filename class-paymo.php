@@ -328,6 +328,31 @@ class Paymo extends Cache {
 		$this->callMethod('GET', 'paymo.entries.getTrackedTimeByUser', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'user_id' => $user_id));
 		return $this->response ? $this->response : $this->error_msg;
 	}
+
+	/**
+	 * paymo.entries.addBulk
+	 * @ingroup Entries
+	 * @see http://api.paymo.biz/docs/paymo.entries.addBulk.html
+	 * @param string $date The date for the entry - format: 2009-03-19
+	 * @param string $duration The duration of time to track (in seconds)
+	 * @param string $task_id The task id
+	 * @param boolean $billed If the time has been billed or not (1 if billed, 0 if not) (optional)
+	 * @param string $description The description of the task (optional)
+	 * @return mixed
+	 */
+	function entries_addBulk($date, $duration, $task_id, $billed, $description) {
+		$this->callMethod('POST', 'paymo.entries.addBulk', array(
+			'api_key' 			=> $this->api_key,
+			'format' 				=> $this->format,
+			'auth_token' 		=> $this->auth_token,
+			'date' 					=> $date,
+			'duration' 			=> $duration,
+			'billed' 			  => $billed,
+			'task_id' 			=> $task_id,
+			'description' 	=> $description
+		));
+		return $this->response ? $this->response : $this->error_msg;
+	}
 	
 	/**
 	 * paymo.reports
