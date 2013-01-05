@@ -199,7 +199,7 @@ class Paymo extends Cache {
 	 * paymo.clients.getInfo
 	 * @ingroup Clients
 	 * @see http://api.paymo.biz/docs/paymo.clients.getList.html
-	 * @param string $client_id Your client id
+	 * @param int $client_id Your client id
 	 * @return mixed
 	 */
 	function clients_getInfo($client_id) {
@@ -265,6 +265,24 @@ class Paymo extends Cache {
 	}
 
 	/**
+	 * paymo.tasks
+	 * @defgroup Tasks
+	 */
+
+	/**
+	 * paymo.tasks.findByProject
+	 * @ingroup Tasks
+	 * @see http://api.paymo.biz/docs/paymo.tasks.findByProject.html
+	 * @param int $project_id	The id of the project you want to search for tasks in
+	 * @return mixed
+	 */
+	function tasks_findByProject($project_id) {
+		$this->callMethod('GET', 'paymo.tasks.findByProject', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'project_id' => $project_id));
+		return $this->response ? $this->response : $this->error_msg;
+	}
+
+
+	/**
 	 * paymo.invoices
 	 * @defgroup Invoices
 	 */
@@ -273,7 +291,7 @@ class Paymo extends Cache {
 	 * paymo.invoices.find
 	 * @ingroup Invoices
 	 * @see http://api.paymo.biz/docs/paymo.invoices.find.html
-	 * @param string $client_id Client ID that you wish to search for - optional
+	 * @param int $client_id Client ID that you wish to search for - optional
 	 * @param string $start Start date in MySQL datetime format - optional
 	 * @param string $end End date in MySQL datetime format - optional
 	 * @param string $status Valid invoice statuses are: draft, sent, viewed, paid, void. - optional
@@ -288,12 +306,11 @@ class Paymo extends Cache {
 	 * @defgroup Entries
 	 */
 	
-	
 	/**
 	 * paymo.entries.findByProject
 	 * @ingroup Entries
 	 * @see http://api.paymo.biz/docs/paymo.entries.findByProject.html
-	 * @param string $project_id Project ID that you are searching for
+	 * @param int $project_id Project ID that you are searching for
 	 * @param string $start	Start time in MySQL datetime format
 	 * @param string $end End time in MySQL datetime format
 	 * @return mixed
@@ -307,7 +324,7 @@ class Paymo extends Cache {
 	 * paymo.entries.getTrackedTimeByProject
 	 * @ingroup Entries
 	 * @see http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByProject.html
-	 * @param string $project_id Project ID that you are searching for
+	 * @param int $project_id Project ID that you are searching for
 	 * @param string $start	Start time in MySQL datetime format
 	 * @param string $end End time in MySQL datetime format
 	 * @return mixed 
@@ -321,7 +338,7 @@ class Paymo extends Cache {
 	 * paymo.entries.getTrackedTimeByUser
 	 * @ingroup Entries
 	 * @see http://api.paymo.biz/docs/paymo.entries.getTrackedTimeByUser.html
-	 * @param string $user_id The user id that you wish to get stats for
+	 * @param int $user_id The user id that you wish to get stats for
 	 * @return mixed 
 	 */
 	function entries_getTrackedTimeByUser($user_id) {
@@ -334,8 +351,8 @@ class Paymo extends Cache {
 	 * @ingroup Entries
 	 * @see http://api.paymo.biz/docs/paymo.entries.addBulk.html
 	 * @param string $date The date for the entry - format: 2009-03-19
-	 * @param string $duration The duration of time to track (in seconds)
-	 * @param string $task_id The task id
+	 * @param int $duration The duration of time to track (in seconds)
+	 * @param int $task_id The task id
 	 * @param boolean $billed If the time has been billed or not (1 if billed, 0 if not) (optional)
 	 * @param string $description The description of the task (optional)
 	 * @return mixed
