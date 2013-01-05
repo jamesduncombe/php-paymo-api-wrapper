@@ -78,9 +78,12 @@ class Paymo extends Cache {
 		
 		// setup the string which is encoded and cleaned
 		$request_params = rtrim($request_params, '&');
+
+		// create hash for API cache file name
+		$hash = md5($this->rest_url.$method.'?'.$request_params);
 		
 		// set the location of the cache file if there is one (we'll check in a minute)
-		$this->cache_file = './cache/'.$method.'.'.$this->format;
+		$this->cache_file = './cache/'.$hash.'.'.$this->format;
 		
 		// if we're using caching, read the cache, otherwise poll the server for new results everytime
 		if ($this->use_data_cache === true) {
