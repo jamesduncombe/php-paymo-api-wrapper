@@ -8,7 +8,7 @@
  * @package paymo-api
  * @author James Duncombe
  * @copyright none
- * @version 0.0.1
+ * @version 0.0.2
  */
  
 /**
