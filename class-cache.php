@@ -71,8 +71,6 @@ abstract class Cache {
 				die('Can\'t write cache file, please check the cache directory permissions. Is it writeable by this script?');
 			}
 		} else {
-			die('DEAD');
-			echo 'HERE';
 			// first create the cache
 			$this->createCacheDirectory();
 			// then fill the cache
