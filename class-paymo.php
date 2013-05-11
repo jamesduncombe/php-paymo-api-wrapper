@@ -8,7 +8,7 @@
  * @package paymo-api
  * @author James Duncombe
  * @copyright none
- * @version 0.0.2
+ * @version 0.0.3
  */
  
 /**
@@ -71,6 +71,8 @@ class Paymo extends Cache {
 	 */
 	public function callMethod($request_type, $method, $params = array()) {
 
+		$request_params = '';
+
 		// iterate over the method arguments
 		foreach ($params as $key => $value) {
 			$request_params .= urlencode($key).'='.urlencode($value).'&';
@@ -121,7 +123,7 @@ class Paymo extends Cache {
 			}
 		}
 				
-		if ($this->response->error) {
+		if (isset($this->response->error)) {
 			if ($this->format === 'xml') {
 			$this->error_msg = 'Sorry, there was a problem, the error from Paymo was: '.strval($this->response->error->attributes()->message);
 			} elseif ($this->format === 'json') {
