@@ -268,6 +268,17 @@ class Paymo extends Cache {
 		$this->callMethod('GET', 'paymo.projects.getList', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
 		return $this->response ? $this->response : $this->error_msg;
 	}
+	
+	/**
+	 * paymo.projects.getInfo
+	 * @ingroup Projects
+	 * @see http://api.paymo.biz/docs/paymo.projects.getInfo.html
+	 * @return mixed
+	*/
+	function projects_getInfo($project_id, $include_task_lists = 0, $include_tasks = 0) {
+	    $this->callMethod('GET', 'paymo.projects.getInfo', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'project_id' => $project_id, 'include_task_lists' => $include_task_lists, 'include_tasks' => $include_tasks));
+	    return $this->response ? $this->response : $this->error_msg;
+	}
 
 	/**
 	 * paymo.tasks
