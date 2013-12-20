@@ -42,7 +42,6 @@ class Paymo extends Cache {
 		/* Set main vars */
 		$this->cache_file = './cache/';
 		$this->cache_time = 8400;
-		$this->cache_time_data = 120;
 		$this->api_key = $api_key;
 		$this->format = $format;
 		$this->username = $username;
