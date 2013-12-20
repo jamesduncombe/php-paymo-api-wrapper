@@ -28,6 +28,7 @@ class Paymo extends Cache {
 	public $use_data_cache;
 	public $cache_directory;
 	public $cache_time;
+	public $force_cache;
 	
 	/**
 	 * Setup a new instance of the class
@@ -39,7 +40,7 @@ class Paymo extends Cache {
 	 * @param bool		$use_data_cache		Whether or not to use the cache for data from Paymo
 	 * @param string	$format				What format to request, JSON or XML?
 	 */
-    	public function __construct($api_key, $username, $password, $use_auth_cache, $use_data_cache, $format, $cache_directory = './cache1/', $cache_time = 8400) {
+    	public function __construct($api_key, $username, $password, $use_auth_cache, $use_data_cache, $format, $cache_directory = './cache1/', $cache_time = 8400, $force_cache = false) {
 
         /* Set main vars */
         $this->cache_directory = $cache_directory;
@@ -50,6 +51,7 @@ class Paymo extends Cache {
 		$this->password = $password;
 		$this->use_auth_cache = $use_auth_cache;
 		$this->use_data_cache = $use_data_cache;
+		$this->force_cache = $force_cache;
 		
 		// must always authenticate
 		$result = $this->auth_login($this->username, $this->password);
@@ -93,19 +95,25 @@ class Paymo extends Cache {
 			
 			// check format - XML or JSON
 			if ($this->format === 'xml') {
-				if (!$this->checkCache()) {
-					// are we using GET or POST?
-					$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
-					$xml = new SimpleXMLElement($api_response);
-					file_put_contents($this->cache_file, $xml->asXML());
+				if(!$this->force_cache){
+					if (!$this->checkCache()) {
+						// are we using GET or POST?
+						$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
+						$xml = new SimpleXMLElement($api_response);
+						file_put_contents($this->cache_file, $xml->asXML());
+					}
 				}
 				$this->response = simplexml_load_file($this->cache_file);
 			// must be json, continue
 			} elseif ($this->format === 'json') {
-				if (!$this->checkCache()) {
-					$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
-					file_put_contents($this->cache_file, $api_response);
-					$this->response = json_decode($api_response);
+				if(!$this->force_cache){
+					if (!$this->checkCache()) {
+						$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
+						file_put_contents($this->cache_file, $api_response);
+						$this->response = json_decode($api_response);
+					} else {
+						$this->response = json_decode(file_get_contents($this->cache_file));
+					}
 				} else {
 					$this->response = json_decode(file_get_contents($this->cache_file));
 				}
