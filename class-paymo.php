@@ -26,9 +26,9 @@ class Paymo extends Cache {
 	public $cache_file_data;
 	public $use_auth_cache;
 	public $use_data_cache;
-    	public $cache_file;
-    	public $cache_time;
-    	public $cache_time_data;
+	public $cache_directory;
+	public $cache_time;
+	public $cache_time_data;
 	
 	/**
 	 * Setup a new instance of the class
@@ -40,12 +40,12 @@ class Paymo extends Cache {
 	 * @param bool		$use_data_cache		Whether or not to use the cache for data from Paymo
 	 * @param string	$format				What format to request, JSON or XML?
 	 */
-    	public function __construct($api_key, $username, $password, $use_auth_cache, $use_data_cache, $format, $cache_file = './cache/', $cache_time = 8400, $cache_time_data = 120) {
+    	public function __construct($api_key, $username, $password, $use_auth_cache, $use_data_cache, $format, $cache_directory = './cache1/', $cache_time = 8400, $cache_time_data = 120) {
 
-	        /* Set main vars */
-	        $this->cache_file = $cache_file;
-	        $this->cache_time = $cache_time;
-	        $this->cache_time_data = $cache_time_data;
+        /* Set main vars */
+        $this->cache_directory = $cache_directory;
+        $this->cache_time = $cache_time;
+        $this->cache_time_data = $cache_time_data;
 		$this->api_key = $api_key;
 		$this->format = $format;
 		$this->username = $username;
@@ -88,7 +88,7 @@ class Paymo extends Cache {
 		$hash = md5($this->rest_url.$method.'?'.$request_params);
 		
 		// set the location of the cache file if there is one (we'll check in a minute)
-		$this->cache_file = './cache/'.$hash.'.'.$this->format;
+		$this->cache_file = $this->cache_directory.$hash.'.'.$this->format;
 		
 		// if we're using caching, read the cache, otherwise poll the server for new results everytime
 		if ($this->use_data_cache === true) {
