@@ -75,17 +75,23 @@ class Paymo extends Cache {
 	public function callMethod($request_type, $method, $params = array()) {
 
 		$request_params = '';
+		$cache_request_params = '';
 
 		// iterate over the method arguments
 		foreach ($params as $key => $value) {
 			$request_params .= urlencode($key).'='.urlencode($value).'&';
+			// not add auth_token to cache_request_params
+			if($key !== 'auth_token'){
+				$cache_request_params .= urlencode($key).'='.urlencode($value).'&';			
+			}
 		}
 		
 		// setup the string which is encoded and cleaned
 		$request_params = rtrim($request_params, '&');
+		$cache_request_params = rtrim($cache_request_params, '&');
 
 		// create hash for API cache file name
-		$hash = md5($this->rest_url.$method.'?'.$request_params);
+		$hash = md5($this->rest_url.$method.'?'.$cache_request_params);
 		
 		// set the location of the cache file if there is one (we'll check in a minute)
 		$this->cache_file = $this->cache_directory.$hash.'.'.$this->format;
