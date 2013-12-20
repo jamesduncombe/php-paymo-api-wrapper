@@ -26,9 +26,9 @@ class Paymo extends Cache {
 	public $cache_file_data;
 	public $use_auth_cache;
 	public $use_data_cache;
-    	public $cache_file;
-    	public $cache_time;
-    	public $cache_time_data;
+	public $cache_directory;
+	public $cache_time;
+	public $force_cache;
 	
 	/**
 	 * Setup a new instance of the class
@@ -40,18 +40,18 @@ class Paymo extends Cache {
 	 * @param bool		$use_data_cache		Whether or not to use the cache for data from Paymo
 	 * @param string	$format				What format to request, JSON or XML?
 	 */
-    	public function __construct($api_key, $username, $password, $use_auth_cache, $use_data_cache, $format, $cache_file = './cache/', $cache_time = 8400, $cache_time_data = 120) {
+    	public function __construct($api_key, $username, $password, $use_auth_cache, $use_data_cache, $format, $cache_directory = './cache1/', $cache_time = 8400, $force_cache = false) {
 
-	        /* Set main vars */
-	        $this->cache_file = $cache_file;
-	        $this->cache_time = $cache_time;
-	        $this->cache_time_data = $cache_time_data;
+        /* Set main vars */
+        $this->cache_directory = $cache_directory;
+        $this->cache_time = $cache_time;
 		$this->api_key = $api_key;
 		$this->format = $format;
 		$this->username = $username;
 		$this->password = $password;
 		$this->use_auth_cache = $use_auth_cache;
 		$this->use_data_cache = $use_data_cache;
+		$this->force_cache = $force_cache;
 		
 		// must always authenticate
 		$result = $this->auth_login($this->username, $this->password);
@@ -75,39 +75,51 @@ class Paymo extends Cache {
 	public function callMethod($request_type, $method, $params = array()) {
 
 		$request_params = '';
+		$cache_request_params = '';
 
 		// iterate over the method arguments
 		foreach ($params as $key => $value) {
 			$request_params .= urlencode($key).'='.urlencode($value).'&';
+			// not add auth_token to cache_request_params
+			if($key !== 'auth_token'){
+				$cache_request_params .= urlencode($key).'='.urlencode($value).'&';			
+			}
 		}
 		
 		// setup the string which is encoded and cleaned
 		$request_params = rtrim($request_params, '&');
+		$cache_request_params = rtrim($cache_request_params, '&');
 
 		// create hash for API cache file name
-		$hash = md5($this->rest_url.$method.'?'.$request_params);
+		$hash = md5($this->rest_url.$method.'?'.$cache_request_params);
 		
 		// set the location of the cache file if there is one (we'll check in a minute)
-		$this->cache_file = './cache/'.$hash.'.'.$this->format;
+		$this->cache_file = $this->cache_directory.$hash.'.'.$this->format;
 		
 		// if we're using caching, read the cache, otherwise poll the server for new results everytime
 		if ($this->use_data_cache === true) {
 			
 			// check format - XML or JSON
 			if ($this->format === 'xml') {
-				if (!$this->checkCache()) {
-					// are we using GET or POST?
-					$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
-					$xml = new SimpleXMLElement($api_response);
-					file_put_contents($this->cache_file, $xml->asXML());
+				if(!$this->force_cache){
+					if (!$this->checkCache()) {
+						// are we using GET or POST?
+						$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
+						$xml = new SimpleXMLElement($api_response);
+						file_put_contents($this->cache_file, $xml->asXML());
+					}
 				}
 				$this->response = simplexml_load_file($this->cache_file);
 			// must be json, continue
 			} elseif ($this->format === 'json') {
-				if (!$this->checkCache()) {
-					$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
-					file_put_contents($this->cache_file, $api_response);
-					$this->response = json_decode($api_response);
+				if(!$this->force_cache){
+					if (!$this->checkCache()) {
+						$api_response = $this->makeRESTRequest($request_type, $method, $request_params);
+						file_put_contents($this->cache_file, $api_response);
+						$this->response = json_decode($api_response);
+					} else {
+						$this->response = json_decode(file_get_contents($this->cache_file));
+					}
 				} else {
 					$this->response = json_decode(file_get_contents($this->cache_file));
 				}
