@@ -122,7 +122,7 @@ class Paymo extends Cache {
           }
         } else {
           $this->response = json_decode(file_get_contents($this->cache_file));
-        }
+	}
       }
 
     // if we're not using a cache
@@ -348,6 +348,20 @@ class Paymo extends Cache {
    */
   function entries_findByProject($project_id, $start, $end) {
     $this->callMethod('GET', 'paymo.entries.findByProject', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'project_id' => $project_id, 'start' => $start, 'end' => $end));
+    return $this->response ? $this->response : $this->error_msg;
+  }
+
+  /**
+   * paymo.entries.findByUser
+   * @ingroup Entries
+   * @see http://api.paymo.biz/docs/paymo.entries.findByUser.html
+   * @param int $user_id User ID that you are searching for
+   * @param string $start  Start time in MySQL datetime format
+   * @param string $end End time in MySQL datetime format
+   * @return mixed
+   */
+  function entries_findByUser($user_id, $start, $end) {
+    $this->callMethod('GET', 'paymo.entries.findByUser', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'user_id' => $user_id, 'start' => $start, 'end' => $end));
     return $this->response ? $this->response : $this->error_msg;
   }
 
