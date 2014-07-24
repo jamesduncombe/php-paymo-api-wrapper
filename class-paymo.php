@@ -101,7 +101,7 @@ class Paymo extends Cache {
 
       // check format - XML or JSON
       if ($this->format === 'xml') {
-        if(!$this->force_cache){
+        if (!$this->force_cache || ($this->force_cache && !file_exists($this->cache_file))) {
           if (!$this->checkCache()) {
             // are we using GET or POST?
             $api_response = $this->makeRESTRequest($request_type, $method, $request_params);
@@ -112,7 +112,7 @@ class Paymo extends Cache {
         $this->response = simplexml_load_file($this->cache_file);
       // must be json, continue
       } elseif ($this->format === 'json') {
-        if(!$this->force_cache){
+        if (!$this->force_cache || ($this->force_cache && !file_exists($this->cache_file))) {
           if (!$this->checkCache()) {
             $api_response = $this->makeRESTRequest($request_type, $method, $request_params);
             file_put_contents($this->cache_file, $api_response);
