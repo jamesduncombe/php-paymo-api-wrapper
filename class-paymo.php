@@ -312,6 +312,46 @@ class Paymo extends Cache {
     return $this->response ? $this->response : $this->error_msg;
   }
 
+  /**
+   * paymo.tasks.add
+   * @ingroup Tasks
+   * @see http://api.paymo.biz/docs/paymo.tasks.findByProject.html
+   * @param int $project_id  The id of the project you want to search for tasks in
+   * @return mixed
+   */
+  function tasks_add(
+    $name,
+    $project_id,
+    $tasklist_id=null,
+    $description=null,
+    $billable=null,
+    $price_per_hour=null,
+    $budget_hours=null,
+    $due_date=null,
+    $user_id=null
+    ) {
+    $this->callMethod('POST', 'paymo.tasks.add',
+      array(
+        'api_key' => $this->api_key, 
+        'format' => $this->format, 
+        'auth_token' => $this->auth_token, 
+        'name' => $name,
+        'project_id' => $project_id,
+        'tasklist_id' => $tasklist_id,
+        'description' => $description,
+        'billable' => $billable,
+        'price_per_hour' => $price_per_hour,
+        'budget_hours' => $budget_hours,
+        'due_date' => $due_date,
+        'user_id' => $user_id,
+
+        )
+      );
+    return $this->response ? $this->response : $this->error_msg;
+  }
+
+
+
 
   /**
    * paymo.invoices
