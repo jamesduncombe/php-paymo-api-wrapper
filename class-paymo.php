@@ -492,6 +492,21 @@ class Paymo extends Cache {
     return $this->response ? $this->response : $this->error_msg;
   }
 
+  /**
+   * paymo.users
+   * @defgroup Users
+   */
+
+  /**
+   * paymo.users.getList
+   * @ingroup Users
+   * @see http://api.paymo.biz/docs/paymo.users.getList.html
+   * @return mixed
+   */
+  function users_getList() {
+    $this->callMethod('GET', 'paymo.users.getList', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
+    return $this->response ? $this->response : $this->error_msg;
+  }
 }
 
 ?>
