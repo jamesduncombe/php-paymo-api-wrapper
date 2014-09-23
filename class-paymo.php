@@ -295,6 +295,19 @@ class Paymo extends Cache {
       return $this->response ? $this->response : $this->error_msg;
   }
 
+  
+  /**
+   * paymo.projects.findByUser
+   * @ingroup Projects
+   * @see http://api.paymo.biz/docs/paymo.projects.findByUser.html
+   * @param string @user_id Users's id
+   * @return mixed
+   */
+  function projects_findByUser($user_id, $include_task_lists = 0,$include_tasks = 0, $include_retired_projects = 0 ) {
+    $this->callMethod('GET', 'paymo.projects.findByUser', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'user_id' => $user_id, 'include_task_lists' => $include_task_lists, 'include_task_lists' => $include_task_lists, 'include_retired_projects' => $include_retired_projects));
+    return $this->response ? $this->response : $this->error_msg;
+  }
+  
   /**
    * paymo.tasks
    * @defgroup Tasks
@@ -507,6 +520,8 @@ class Paymo extends Cache {
     $this->callMethod('GET', 'paymo.users.getList', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
     return $this->response ? $this->response : $this->error_msg;
   }
+
+
 }
 
 ?>
