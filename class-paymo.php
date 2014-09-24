@@ -364,7 +364,16 @@ class Paymo extends Cache {
   }
 
 
-
+  /**
+   * paymo.tasks.getInfo
+   * @ingroup Tasks
+   * @see http://api.paymo.biz/docs/paymo.tasks.getInfo.html
+   * @return mixed
+  */
+  function tasks_getInfo($task_id) {
+      $this->callMethod('GET', 'paymo.tasks.getInfo', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'task_id' => $task_id));
+      return $this->response ? $this->response : $this->error_msg;
+  }
 
   /**
    * paymo.invoices
