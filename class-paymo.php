@@ -324,6 +324,18 @@ class Paymo extends Cache {
     $this->callMethod('GET', 'paymo.tasks.findByProject', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'project_id' => $project_id));
     return $this->response ? $this->response : $this->error_msg;
   }
+  
+    /**
+   * paymo.tasks.findByName
+   * @ingroup Tasks
+   * @see http://api.paymo.biz/docs/paymo.tasks.findByName.html
+   * @param string $task_name  The name of the task to be searched in all projects
+   * @return mixed
+   */
+  function tasks_findByName($task_name) {
+    $this->callMethod('GET', 'paymo.tasks.findByName', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'name' => $task_name));
+    return $this->response ? $this->response : $this->error_msg;
+  }  
 
   /**
    * paymo.tasks.add
@@ -478,6 +490,30 @@ class Paymo extends Cache {
     return $this->response ? $this->response : $this->error_msg;
   }
 
+  /**
+   * paymo.entries.add
+   * @ingroup Entries
+   * @see http://api.paymo.biz/docs/paymo.entries.add.html
+   * @param string $startdate The end time for the entry - format: 2009-03-19
+   * @param int $enddate The end time for the entry - format: 2009-03-19
+   * @param int $task_id The task id
+   * @param boolean $billed If the time has been billed or not (1 if billed, 0 if not) (optional)
+   * @param string $description The description of the task (optional)
+   * @return mixed
+   */
+  function entries_add($startdate, $enddate, $task_id, $billed, $description) {
+    $this->callMethod('POST', 'paymo.entries.add', array(
+      'api_key'       => $this->api_key,
+      'format'        => $this->format,
+      'auth_token'    => $this->auth_token,
+      'start'          => $startdate,
+      'end'          => $enddate,
+      'billed'        => $billed,
+      'task_id'       => $task_id,
+      'description'   => $description
+    ));
+    return $this->response ? $this->response : $this->error_msg;
+  }
   /**
    * paymo.reports
    * @defgroup Reports
