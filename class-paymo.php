@@ -295,6 +295,19 @@ class Paymo extends Cache {
       return $this->response ? $this->response : $this->error_msg;
   }
 
+  
+  /**
+   * paymo.projects.findByUser
+   * @ingroup Projects
+   * @see http://api.paymo.biz/docs/paymo.projects.findByUser.html
+   * @param string @user_id Users's id
+   * @return mixed
+   */
+  function projects_findByUser($user_id, $include_task_lists = 0,$include_tasks = 0, $include_retired_projects = 0 ) {
+    $this->callMethod('GET', 'paymo.projects.findByUser', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'user_id' => $user_id, 'include_task_lists' => $include_task_lists, 'include_task_lists' => $include_task_lists, 'include_retired_projects' => $include_retired_projects));
+    return $this->response ? $this->response : $this->error_msg;
+  }
+  
   /**
    * paymo.tasks
    * @defgroup Tasks
@@ -311,6 +324,18 @@ class Paymo extends Cache {
     $this->callMethod('GET', 'paymo.tasks.findByProject', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'project_id' => $project_id));
     return $this->response ? $this->response : $this->error_msg;
   }
+  
+    /**
+   * paymo.tasks.findByName
+   * @ingroup Tasks
+   * @see http://api.paymo.biz/docs/paymo.tasks.findByName.html
+   * @param string $task_name  The name of the task to be searched in all projects
+   * @return mixed
+   */
+  function tasks_findByName($task_name) {
+    $this->callMethod('GET', 'paymo.tasks.findByName', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'name' => $task_name));
+    return $this->response ? $this->response : $this->error_msg;
+  }  
 
   /**
    * paymo.tasks.add
@@ -351,7 +376,16 @@ class Paymo extends Cache {
   }
 
 
-
+  /**
+   * paymo.tasks.getInfo
+   * @ingroup Tasks
+   * @see http://api.paymo.biz/docs/paymo.tasks.getInfo.html
+   * @return mixed
+  */
+  function tasks_getInfo($task_id) {
+      $this->callMethod('GET', 'paymo.tasks.getInfo', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token, 'task_id' => $task_id));
+      return $this->response ? $this->response : $this->error_msg;
+  }
 
   /**
    * paymo.invoices
@@ -457,6 +491,30 @@ class Paymo extends Cache {
   }
 
   /**
+   * paymo.entries.add
+   * @ingroup Entries
+   * @see http://api.paymo.biz/docs/paymo.entries.add.html
+   * @param string $startdate The end time for the entry - format: 2009-03-19
+   * @param int $enddate The end time for the entry - format: 2009-03-19
+   * @param int $task_id The task id
+   * @param boolean $billed If the time has been billed or not (1 if billed, 0 if not) (optional)
+   * @param string $description The description of the task (optional)
+   * @return mixed
+   */
+  function entries_add($startdate, $enddate, $task_id, $billed, $description) {
+    $this->callMethod('POST', 'paymo.entries.add', array(
+      'api_key'       => $this->api_key,
+      'format'        => $this->format,
+      'auth_token'    => $this->auth_token,
+      'start'          => $startdate,
+      'end'          => $enddate,
+      'billed'        => $billed,
+      'task_id'       => $task_id,
+      'description'   => $description
+    ));
+    return $this->response ? $this->response : $this->error_msg;
+  }
+  /**
    * paymo.reports
    * @defgroup Reports
    */
@@ -507,6 +565,8 @@ class Paymo extends Cache {
     $this->callMethod('GET', 'paymo.users.getList', array('api_key' => $this->api_key, 'format' => $this->format, 'auth_token' => $this->auth_token));
     return $this->response ? $this->response : $this->error_msg;
   }
+
+
 }
 
 ?>
